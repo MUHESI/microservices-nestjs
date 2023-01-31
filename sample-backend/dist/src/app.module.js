@@ -25,6 +25,9 @@ AppModule = __decorate([
                 {
                     name: config_1.NamesService.ANALYTIC,
                     transport: microservices_1.Transport.TCP,
+                    options: {
+                        port: 3050,
+                    },
                 },
             ]),
         ],

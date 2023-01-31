@@ -11,13 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
+const microservices_1 = require("@nestjs/microservices");
 const app_service_1 = require("./app.service");
+const createUserEvent_1 = require("./dto/createUserEvent");
+const config_1 = require("./mc-config/config");
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
     getHello() {
         return this.appService.getHello();
+    }
+    handleUserCreated(data) {
+        this.appService.handleUserCreated(data);
     }
 };
 __decorate([
@@ -26,6 +32,12 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
 ], AppController.prototype, "getHello", null);
+__decorate([
+    (0, microservices_1.EventPattern)(config_1.EmitPattern.userCreated),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [createUserEvent_1.CreateUserEvent]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "handleUserCreated", null);
 AppController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [app_service_1.AppService])

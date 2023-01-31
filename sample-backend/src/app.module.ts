@@ -14,6 +14,9 @@ import { NamesService } from './mc-config/config';
       {
         name: NamesService.ANALYTIC,
         transport: Transport.TCP,
+        options: {
+          port: 3050,
+        },
       },
     ]),
   ],
