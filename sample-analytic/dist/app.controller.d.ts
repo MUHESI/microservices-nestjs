@@ -5,4 +5,5 @@ export declare class AppController {
     constructor(appService: AppService);
     getHello(): string;
     handleUserCreated(data: CreateUserEvent): void;
+    getAnalytics(data: CreateUserEvent): any[];
 }

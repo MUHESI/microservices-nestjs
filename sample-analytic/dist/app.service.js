@@ -19,6 +19,9 @@ let AppService = class AppService {
         console.log('handleUserCreated- ANALYTIC', data);
         this.analytics.push(data);
     }
+    getAnalytics() {
+        return this.analytics;
+    }
 };
 AppService = __decorate([
     (0, common_1.Injectable)()

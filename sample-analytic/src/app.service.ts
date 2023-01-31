@@ -13,4 +13,7 @@ export class AppService {
     console.log('handleUserCreated- ANALYTIC', data);
     this.analytics.push(data);
   }
+  getAnalytics() {
+    return this.analytics;
+  }
 }

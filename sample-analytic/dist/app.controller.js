@@ -25,6 +25,9 @@ let AppController = class AppController {
     handleUserCreated(data) {
         this.appService.handleUserCreated(data);
     }
+    getAnalytics(data) {
+        return this.appService.getAnalytics();
+    }
 };
 __decorate([
     (0, common_1.Get)(),
@@ -38,6 +41,12 @@ __decorate([
     __metadata("design:paramtypes", [createUserEvent_1.CreateUserEvent]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "handleUserCreated", null);
+__decorate([
+    (0, microservices_1.MessagePattern)({ cmd: config_1.SendCmdPattern.getAnalytics }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [createUserEvent_1.CreateUserEvent]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getAnalytics", null);
 AppController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [app_service_1.AppService])
