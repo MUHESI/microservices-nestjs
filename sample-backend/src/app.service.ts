@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { CreateUserEvent } from './create-user.event';
 import { CreateUserDto } from './dto/createUserDto';
-import { EmitPattern, NamesService } from './mc-config/config';
+import { EmitPattern, NamesService, SendCmdPattern } from './mc-config/config';
 
 export interface IUser {
   fName: string;
@@ -36,5 +36,8 @@ export class AppService {
       new CreateUserEvent(data),
     );
     return data;
+  }
+  getAnalytics() {
+    return this.analyticClient.send({ cmd: SendCmdPattern.getAnalytics }, {});
   }
 }

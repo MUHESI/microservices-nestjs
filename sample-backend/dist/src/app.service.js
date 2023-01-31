@@ -32,6 +32,9 @@ let AppService = class AppService {
         this.analyticClient.emit(config_1.EmitPattern.userCreated, new create_user_event_1.CreateUserEvent(data));
         return data;
     }
+    getAnalytics() {
+        return this.analyticClient.send({ cmd: config_1.SendCmdPattern.getAnalytics }, {});
+    }
 };
 AppService = __decorate([
     (0, common_1.Injectable)(),

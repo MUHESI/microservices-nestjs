@@ -14,4 +14,8 @@ export class AppController {
   createUser(@Body() Body: CreateUserDto) {
     return this.appService.createUser({ ...Body });
   }
+  @Get('analytics')
+  getAnalytics() {
+    return this.appService.getAnalytics();
+  }
 }

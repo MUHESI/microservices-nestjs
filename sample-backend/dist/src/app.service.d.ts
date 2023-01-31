@@ -12,4 +12,5 @@ export declare class AppService {
     constructor(communicationClient: ClientProxy, analyticClient: ClientProxy);
     getHello(): string;
     createUser(data: CreateUserDto): CreateUserDto;
+    getAnalytics(): import("rxjs").Observable<any>;
 }

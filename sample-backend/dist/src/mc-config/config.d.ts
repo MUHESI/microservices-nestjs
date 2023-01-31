@@ -5,3 +5,6 @@ export declare enum NamesService {
 export declare enum EmitPattern {
     userCreated = "TCP::USER/USER_CREATED"
 }
+export declare enum SendCmdPattern {
+    getAnalytics = "TCP::ANALYTC/GET_ANALYTICS"
+}

@@ -5,4 +5,5 @@ export declare class AppController {
     constructor(appService: AppService);
     getHello(): string;
     createUser(Body: CreateUserDto): CreateUserDto;
+    getAnalytics(): import("rxjs").Observable<any>;
 }

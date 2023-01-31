@@ -26,6 +26,9 @@ let AppController = class AppController {
     createUser(Body) {
         return this.appService.createUser(Object.assign({}, Body));
     }
+    getAnalytics() {
+        return this.appService.getAnalytics();
+    }
 };
 __decorate([
     (0, common_1.Get)(),
@@ -40,6 +43,12 @@ __decorate([
     __metadata("design:paramtypes", [createUserDto_1.CreateUserDto]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "createUser", null);
+__decorate([
+    (0, common_1.Get)('analytics'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getAnalytics", null);
 AppController = __decorate([
     (0, common_1.Controller)('user'),
     __metadata("design:paramtypes", [app_service_1.AppService])
