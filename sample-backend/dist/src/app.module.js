@@ -22,6 +22,10 @@ AppModule = __decorate([
                     name: config_1.NamesService.COMMUNICATION,
                     transport: microservices_1.Transport.TCP,
                 },
+                {
+                    name: config_1.NamesService.ANALYTIC,
+                    transport: microservices_1.Transport.TCP,
+                },
             ]),
         ],
         controllers: [app_controller_1.AppController],

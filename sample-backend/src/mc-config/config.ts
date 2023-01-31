@@ -1,5 +1,6 @@
 export enum NamesService {
   COMMUNICATION = 'COMMUNICATION',
+  ANALYTIC = 'ANALYTIC',
 }
 
 export enum EmitPattern {

@@ -7,8 +7,9 @@ export interface IUser {
 }
 export declare class AppService {
     private readonly communicationClient;
+    private readonly analyticClient;
     private readonly users;
-    constructor(communicationClient: ClientProxy);
+    constructor(communicationClient: ClientProxy, analyticClient: ClientProxy);
     getHello(): string;
     createUser(data: CreateUserDto): CreateUserDto;
 }

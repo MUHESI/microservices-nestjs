@@ -11,6 +11,10 @@ import { NamesService } from './mc-config/config';
         name: NamesService.COMMUNICATION,
         transport: Transport.TCP,
       },
+      {
+        name: NamesService.ANALYTIC,
+        transport: Transport.TCP,
+      },
     ]),
   ],
   controllers: [AppController],

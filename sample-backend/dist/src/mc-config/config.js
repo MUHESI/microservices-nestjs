@@ -4,6 +4,7 @@ exports.EmitPattern = exports.NamesService = void 0;
 var NamesService;
 (function (NamesService) {
     NamesService["COMMUNICATION"] = "COMMUNICATION";
+    NamesService["ANALYTIC"] = "ANALYTIC";
 })(NamesService = exports.NamesService || (exports.NamesService = {}));
 var EmitPattern;
 (function (EmitPattern) {

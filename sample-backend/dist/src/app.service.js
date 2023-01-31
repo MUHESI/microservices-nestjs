@@ -18,8 +18,9 @@ const microservices_1 = require("@nestjs/microservices");
 const create_user_event_1 = require("./create-user.event");
 const config_1 = require("./mc-config/config");
 let AppService = class AppService {
-    constructor(communicationClient) {
+    constructor(communicationClient, analyticClient) {
         this.communicationClient = communicationClient;
+        this.analyticClient = analyticClient;
         this.users = [];
     }
     getHello() {
@@ -28,13 +29,16 @@ let AppService = class AppService {
     createUser(data) {
         this.users.push(data);
         this.communicationClient.emit(config_1.EmitPattern.userCreated, new create_user_event_1.CreateUserEvent(data));
+        this.analyticClient.emit(config_1.EmitPattern.userCreated, new create_user_event_1.CreateUserEvent(data));
         return data;
     }
 };
 AppService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, common_1.Inject)(config_1.NamesService.COMMUNICATION)),
-    __metadata("design:paramtypes", [microservices_1.ClientProxy])
+    __param(1, (0, common_1.Inject)(config_1.NamesService.ANALYTIC)),
+    __metadata("design:paramtypes", [microservices_1.ClientProxy,
+        microservices_1.ClientProxy])
 ], AppService);
 exports.AppService = AppService;
 //# sourceMappingURL=app.service.js.map
