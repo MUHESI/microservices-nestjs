@@ -41,3 +41,7 @@ $ npm run start:prod
 ## DataBase
 
 No data any database implemented, just some constantes.
+
+## tuto :
+
+- https://www.youtube.com/watch?v=C250DCwS81Q&t=337s
