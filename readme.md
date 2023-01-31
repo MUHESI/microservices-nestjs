@@ -13,6 +13,7 @@ In this project In this short tutorial, I create a Nest.js project with Microser
 
 <br/>
 we have 3 projects :
+
 - sample-backend : To create user, emit data and getAnalytics
 - sample-communication : To handle a user created from sample-backend 
 - sample-analytic: To save a user in an analytic's array and resend, also send allAnalytics via a MessagePattern
@@ -40,4 +41,4 @@ $ npm run start:prod
 
 ## DataBase
 
-No data any database implemented, just some constantes.
+No any database implemented, just some constantes.
