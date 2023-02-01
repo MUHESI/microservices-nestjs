@@ -8,7 +8,8 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { NamesService } from './mc-config/config';
-import { FirstMiddleware } from './middlwares/first/first.middleware';
+import { FirstMiddleware } from './middlewares/first.middleware';
+import { logger } from './middlewares/logger.middleware';
 
 @Module({
   imports: [
@@ -32,7 +33,7 @@ import { FirstMiddleware } from './middlwares/first/first.middleware';
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
-      .apply(FirstMiddleware)
+      .apply(FirstMiddleware, logger)
       .forRoutes(
         'user',
         { path: 'user', method: RequestMethod.GET },

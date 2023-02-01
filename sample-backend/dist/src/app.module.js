@@ -12,11 +12,12 @@ const microservices_1 = require("@nestjs/microservices");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const config_1 = require("./mc-config/config");
-const first_middleware_1 = require("./middlwares/first/first.middleware");
+const first_middleware_1 = require("./middlewares/first.middleware");
+const logger_middleware_1 = require("./middlewares/logger.middleware");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer
-            .apply(first_middleware_1.FirstMiddleware)
+            .apply(first_middleware_1.FirstMiddleware, logger_middleware_1.logger)
             .forRoutes('user', { path: 'user', method: common_1.RequestMethod.GET }, { path: 'todo', method: common_1.RequestMethod.POST });
     }
 };

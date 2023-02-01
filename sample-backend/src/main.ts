@@ -4,6 +4,13 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  // OTHER MIDDLEWARE
+  app.use((req: Request, res: Response, next) => {
+    //
+    console.log('FIRST MIDDLEWARE FROM main.ts');
+    next();
+  });
+
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
