@@ -15,7 +15,9 @@ const config_1 = require("./mc-config/config");
 const first_middleware_1 = require("./middlwares/first/first.middleware");
 let AppModule = class AppModule {
     configure(consumer) {
-        consumer.apply(first_middleware_1.FirstMiddleware).forRoutes('user');
+        consumer
+            .apply(first_middleware_1.FirstMiddleware)
+            .forRoutes('user', { path: 'user', method: common_1.RequestMethod.GET }, { path: 'todo', method: common_1.RequestMethod.POST });
     }
 };
 AppModule = __decorate([
