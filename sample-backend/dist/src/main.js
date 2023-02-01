@@ -6,6 +6,10 @@ const app_module_1 = require("./app.module");
 const morgan = require("morgan");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    const corsOptions = {
+        origin: ['http://localhots:4200'],
+    };
+    app.enableCors(corsOptions);
     app.use((req, res, next) => {
         console.log('FIRST MIDDLEWARE FROM main.ts');
         next();

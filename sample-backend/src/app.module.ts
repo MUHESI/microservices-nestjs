@@ -1,3 +1,4 @@
+import { HelmetMiddleware } from '@nest-middlewares/helmet';
 import {
   MiddlewareConsumer,
   Module,
@@ -40,6 +41,8 @@ export class AppModule implements NestModule {
         { path: 'todo', method: RequestMethod.POST },
       )
       .apply(logger)
-      .forRoutes({ path: 'todo', method: RequestMethod.POST });
+      .forRoutes({ path: 'todo', method: RequestMethod.POST })
+      .apply(HelmetMiddleware)
+      .forRoutes('user');
   }
 }

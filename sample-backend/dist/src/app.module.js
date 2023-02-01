@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
+const helmet_1 = require("@nest-middlewares/helmet");
 const common_1 = require("@nestjs/common");
 const microservices_1 = require("@nestjs/microservices");
 const app_controller_1 = require("./app.controller");
@@ -20,7 +21,9 @@ let AppModule = class AppModule {
             .apply(first_middleware_1.FirstMiddleware)
             .forRoutes('user', { path: 'user', method: common_1.RequestMethod.GET }, { path: 'todo', method: common_1.RequestMethod.POST })
             .apply(logger_middleware_1.logger)
-            .forRoutes({ path: 'todo', method: common_1.RequestMethod.POST });
+            .forRoutes({ path: 'todo', method: common_1.RequestMethod.POST })
+            .apply(helmet_1.HelmetMiddleware)
+            .forRoutes('user');
     }
 };
 AppModule = __decorate([

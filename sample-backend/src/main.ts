@@ -6,6 +6,12 @@ import * as morgan from 'morgan';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // OTHER MIDDLEWARE
+
+  const corsOptions = {
+    origin: ['http://localhots:4200'],
+  };
+  app.enableCors(corsOptions);
+
   app.use((req: Request, res: Response, next) => {
     console.log('FIRST MIDDLEWARE FROM main.ts');
     next();
