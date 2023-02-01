@@ -2,13 +2,14 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as morgan from 'morgan';
+import { DurationInterceptor } from './interceptors/duration/duration.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // OTHER MIDDLEWARE
 
   const corsOptions = {
-    origin: ['http://localhots:4200'],
+    origin: ['http://localhots:4200'], //
   };
   app.enableCors(corsOptions);
 
@@ -26,6 +27,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
+  app.useGlobalInterceptors(new DurationInterceptor());
   await app.listen(3005);
 }
 bootstrap();

@@ -19,7 +19,7 @@ let AppModule = class AppModule {
     configure(consumer) {
         consumer
             .apply(first_middleware_1.FirstMiddleware)
-            .forRoutes('user', { path: 'user', method: common_1.RequestMethod.GET }, { path: 'todo', method: common_1.RequestMethod.POST })
+            .forRoutes('user', { path: 'user', method: common_1.RequestMethod.GET }, { path: 'todo*', method: common_1.RequestMethod.POST })
             .apply(logger_middleware_1.logger)
             .forRoutes({ path: 'todo', method: common_1.RequestMethod.POST })
             .apply(helmet_1.HelmetMiddleware)

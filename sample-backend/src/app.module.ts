@@ -38,7 +38,7 @@ export class AppModule implements NestModule {
       .forRoutes(
         'user',
         { path: 'user', method: RequestMethod.GET },
-        { path: 'todo', method: RequestMethod.POST },
+        { path: 'todo*', method: RequestMethod.POST },
       )
       .apply(logger)
       .forRoutes({ path: 'todo', method: RequestMethod.POST })
