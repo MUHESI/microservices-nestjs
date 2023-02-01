@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { CreateUserEvent } from './create-user.event';
-import { CreateUserDto } from './dto/createUserDto';
+import { CreateUserDto } from './dto/userDto';
 import { EmitPattern, NamesService, SendCmdPattern } from './mc-config/config';
 
 export interface IUser {

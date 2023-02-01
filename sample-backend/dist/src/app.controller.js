@@ -15,12 +15,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("./app.service");
-const createUserDto_1 = require("./dto/createUserDto");
+const userDto_1 = require("./dto/userDto");
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
-    getHello() {
+    getHello(queryParams) {
         return this.appService.getHello();
     }
     createUser(Body) {
@@ -32,15 +32,16 @@ let AppController = class AppController {
 };
 __decorate([
     (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [userDto_1.GetPaginationDTO]),
     __metadata("design:returntype", String)
 ], AppController.prototype, "getHello", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [createUserDto_1.CreateUserDto]),
+    __metadata("design:paramtypes", [userDto_1.CreateUserDto]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "createUser", null);
 __decorate([

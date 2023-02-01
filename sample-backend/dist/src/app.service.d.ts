@@ -1,5 +1,5 @@
 import { ClientProxy } from '@nestjs/microservices';
-import { CreateUserDto } from './dto/createUserDto';
+import { CreateUserDto } from './dto/userDto';
 export interface IUser {
     fName: string;
     lName: string;
