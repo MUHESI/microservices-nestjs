@@ -16,6 +16,7 @@ exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("./app.service");
 const userDto_1 = require("./dto/userDto");
+const upper_an_fusion_pipe_1 = require("./pipes/upper-an-fusion/upper-an-fusion.pipe");
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
@@ -25,6 +26,9 @@ let AppController = class AppController {
     }
     createUser(Body) {
         return this.appService.createUser(Object.assign({}, Body));
+    }
+    postCustomPipe(Body) {
+        return Body;
     }
     getAnalytics() {
         return this.appService.getAnalytics();
@@ -44,6 +48,13 @@ __decorate([
     __metadata("design:paramtypes", [userDto_1.CreateUserDto]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "createUser", null);
+__decorate([
+    (0, common_1.Post)('custompipe'),
+    __param(0, (0, common_1.Body)(upper_an_fusion_pipe_1.UpperAnFusionPipe)),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "postCustomPipe", null);
 __decorate([
     (0, common_1.Get)('analytics'),
     __metadata("design:type", Function),
