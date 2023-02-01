@@ -1,11 +1,20 @@
 import { Controller, Get, Post, Body, Query } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { AppService } from './app.service';
 import { CreateUserDto, GetPaginationDTO } from './dto/userDto';
 import { UpperAnFusionPipe } from './pipes/upper-an-fusion/upper-an-fusion.pipe';
 
 @Controller('user')
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly configService: ConfigService,
+  ) {}
+
+  @Get('env')
+  testDotenv() {
+    return this.configService.get('PORT');
+  }
 
   @Get()
   getHello(@Query() queryParams: GetPaginationDTO): string {

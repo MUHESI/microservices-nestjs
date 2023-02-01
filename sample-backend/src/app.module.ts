@@ -5,6 +5,7 @@ import {
   NestModule,
   RequestMethod,
 } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -14,6 +15,7 @@ import { logger } from './middlewares/logger.middleware';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     ClientsModule.register([
       {
         name: NamesService.COMMUNICATION,

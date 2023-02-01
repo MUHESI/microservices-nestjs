@@ -9,10 +9,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const helmet_1 = require("@nest-middlewares/helmet");
 const common_1 = require("@nestjs/common");
+const config_1 = require("@nestjs/config");
 const microservices_1 = require("@nestjs/microservices");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
-const config_1 = require("./mc-config/config");
+const config_2 = require("./mc-config/config");
 const first_middleware_1 = require("./middlewares/first.middleware");
 const logger_middleware_1 = require("./middlewares/logger.middleware");
 let AppModule = class AppModule {
@@ -29,13 +30,14 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            config_1.ConfigModule.forRoot({ isGlobal: true }),
             microservices_1.ClientsModule.register([
                 {
-                    name: config_1.NamesService.COMMUNICATION,
+                    name: config_2.NamesService.COMMUNICATION,
                     transport: microservices_1.Transport.TCP,
                 },
                 {
-                    name: config_1.NamesService.ANALYTIC,
+                    name: config_2.NamesService.ANALYTIC,
                     transport: microservices_1.Transport.TCP,
                     options: {
                         port: 3050,

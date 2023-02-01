@@ -14,12 +14,17 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
+const config_1 = require("@nestjs/config");
 const app_service_1 = require("./app.service");
 const userDto_1 = require("./dto/userDto");
 const upper_an_fusion_pipe_1 = require("./pipes/upper-an-fusion/upper-an-fusion.pipe");
 let AppController = class AppController {
-    constructor(appService) {
+    constructor(appService, configService) {
         this.appService = appService;
+        this.configService = configService;
+    }
+    testDotenv() {
+        return this.configService.get('PORT');
     }
     getHello(queryParams) {
         return this.appService.getHello();
@@ -34,6 +39,12 @@ let AppController = class AppController {
         return this.appService.getAnalytics();
     }
 };
+__decorate([
+    (0, common_1.Get)('env'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "testDotenv", null);
 __decorate([
     (0, common_1.Get)(),
     __param(0, (0, common_1.Query)()),
@@ -63,7 +74,8 @@ __decorate([
 ], AppController.prototype, "getAnalytics", null);
 AppController = __decorate([
     (0, common_1.Controller)('user'),
-    __metadata("design:paramtypes", [app_service_1.AppService])
+    __metadata("design:paramtypes", [app_service_1.AppService,
+        config_1.ConfigService])
 ], AppController);
 exports.AppController = AppController;
 //# sourceMappingURL=app.controller.js.map
