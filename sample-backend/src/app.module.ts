@@ -33,11 +33,13 @@ import { logger } from './middlewares/logger.middleware';
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
-      .apply(FirstMiddleware, logger)
+      .apply(FirstMiddleware)
       .forRoutes(
         'user',
         { path: 'user', method: RequestMethod.GET },
         { path: 'todo', method: RequestMethod.POST },
-      );
+      )
+      .apply(logger)
+      .forRoutes({ path: 'todo', method: RequestMethod.POST });
   }
 }

@@ -17,8 +17,10 @@ const logger_middleware_1 = require("./middlewares/logger.middleware");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer
-            .apply(first_middleware_1.FirstMiddleware, logger_middleware_1.logger)
-            .forRoutes('user', { path: 'user', method: common_1.RequestMethod.GET }, { path: 'todo', method: common_1.RequestMethod.POST });
+            .apply(first_middleware_1.FirstMiddleware)
+            .forRoutes('user', { path: 'user', method: common_1.RequestMethod.GET }, { path: 'todo', method: common_1.RequestMethod.POST })
+            .apply(logger_middleware_1.logger)
+            .forRoutes({ path: 'todo', method: common_1.RequestMethod.POST });
     }
 };
 AppModule = __decorate([
